@@ -17,8 +17,6 @@ if (defined('INSTAGRAM_USER') && defined('INSTAGRAM_PASS') && !empty(INSTAGRAM_U
     $debug = !1;
     $truncatedDebug = !0;
     Instagram::$allowDangerousWebUsageAtMyOwnRisk = true;
-    \InstagramAPI\Utils::$ffmpegBin = 'D:/wamp64/bin/ffmpeg';
-    \InstagramAPI\Utils::$ffprobeBin = 'D:/wamp64/bin/ffprobe';
 
     //////// LOGIN INSTAGRAM //////////////
     $ig = new Instagram($debug, $truncatedDebug);
