@@ -1,0 +1,17 @@
+{
+  "name": "ueb/social",
+  "description": "Gerenciador de perfil social",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Edinei J. Bauer",
+      "email": "edineibauer@gmail.com"
+    }
+  ],
+  "require": {
+    "ueb/dashboard": "*",
+    "mgp25/instagram-php": "^7.0",
+    "php": "^7.1",
+    "ext-json": "*"
+  }
+}

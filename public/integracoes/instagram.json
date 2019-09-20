@@ -1,0 +1,14 @@
+{
+  "nome": "Instagram",
+  "link": "https://www.instagram.com",
+  "constantes": {
+    "Usuário": {
+      "input": "text",
+      "column": "INSTAGRAM_USER"
+    },
+    "Senha": {
+      "input": "text",
+      "column": "INSTAGRAM_PASS"
+    }
+  }
+}
