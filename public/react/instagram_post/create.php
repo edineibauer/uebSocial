@@ -15,7 +15,7 @@ if (defined('INSTAGRAM_USER') && defined('INSTAGRAM_PASS') && !empty(INSTAGRAM_U
     /////// CONFIG ///////
     $username = INSTAGRAM_USER;
     $password = INSTAGRAM_PASS;
-    $debug = !0;
+    $debug = !1;
     $truncatedDebug = !0;
     Instagram::$allowDangerousWebUsageAtMyOwnRisk = true;
 
