@@ -40,14 +40,16 @@ if (defined('INSTAGRAM_USER') && defined('INSTAGRAM_PASS') && !empty(INSTAGRAM_U
                     //5% de probabilidade de escolher essa pessoa para dar like no seu conteúdo
                     if (rand(0, 20) === 1) {
                         $response = $ig->timeline->getUserFeed($user->getPk(), null);
-                        $ig->media->like($response->getItems()[0]->getId(), 0);
-                        
-                        $countLike ++;
-                        if($countLike > $maxLike) {
-                            break;
-                        } else {
-                            //aguarda alguns segundos para simular um novo like
-                            sleep(rand(15, 30));
+                        if(!empty($response->getItems())) {
+                            $ig->media->like($response->getItems()[0]->getId(), 0);
+
+                            $countLike ++;
+                            if($countLike > $maxLike) {
+                                break;
+                            } else {
+                                //aguarda alguns segundos para simular um novo like
+                                sleep(rand(15, 30));
+                            }
                         }
                     }
                 }

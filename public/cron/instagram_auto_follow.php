@@ -32,8 +32,11 @@ if (defined('INSTAGRAM_USER') && defined('INSTAGRAM_PASS') && !empty(INSTAGRAM_U
             try {
                 $ig->login(INSTAGRAM_USER, INSTAGRAM_PASS);
 
+                $peoples = $ig->people->getSuggestedUsers(INSTAGRAM_ID)->getUsers();
+
                 //segue a primeira sugestão do instagram
-                $ig->people->follow($ig->people->getSuggestedUsers(INSTAGRAM_ID)->getUsers()[0]->getPk());
+                if(!empty($peoples[0]))
+                    $ig->people->follow($peoples[0]->getPk());
 
                 //50% de probabilidade de seguir uma segunda pessoa
                 if (rand(0, 1) === 1) {
@@ -42,7 +45,8 @@ if (defined('INSTAGRAM_USER') && defined('INSTAGRAM_PASS') && !empty(INSTAGRAM_U
                     sleep(rand(2, 5));
 
                     //segue a segunda sugestão do instagram
-                    $ig->people->follow($ig->people->getSuggestedUsers(INSTAGRAM_ID)->getUsers()[1]->getPk());
+                    if(!empty($peoples[1]))
+                        $ig->people->follow($peoples[1]->getPk());
 
                     //25% de probabilidade sobre a 50% anterior de seguir uma terceira pessoa
                     if (rand(0, 3) === 1) {
@@ -51,7 +55,8 @@ if (defined('INSTAGRAM_USER') && defined('INSTAGRAM_PASS') && !empty(INSTAGRAM_U
                         sleep(rand(2, 10));
 
                         //segue a terceira sugestão do instagram
-                        $ig->people->follow($ig->people->getSuggestedUsers(INSTAGRAM_ID)->getUsers()[2]->getPk());
+                        if(!empty($peoples[2]))
+                            $ig->people->follow($peoples[2]->getPk());
                     }
                 }
             } catch (\Exception $e) {
